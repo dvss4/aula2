@@ -14,11 +14,59 @@ function App(){
       alert('Digite o comando');
       return;
     }
-    else if(input === 'Print'){
+    else if(input === 'PRINT'){
       setMostar('none')
       setMostrarDesc('')
       setDescrição('Sua função é, basicamente, exibir mensagens na tela ou enviá-las para outro dispositivo, como imprimir dentro de arquivos de texto.')
       setImagem('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHuT0SP_DsT7GJawX-2XJk1qLi7OrDO9iXQQCLCKx5FVjzoYfGaDUMjEGeGIgxN5KZCwI&usqp=CAU')
+    }
+    else if(input === 'INPUT'){
+      setMostar('none')
+      setMostrarDesc('')
+      setDescrição("É uma função que permite pedir a um usuário para inserir alguns dados e retorna um referência aos dados na forma de uma string.")
+      setImagem('https://miro.medium.com/max/522/1*JNRkBpXQZqjVOocpnkZzvQ.png')
+    }
+    else if(input === 'WHILE'){
+      setMostar('none')
+      setMostrarDesc('')
+      setDescrição("Essa instrução é usada quando não sabemos quantas vezes um determinado bloco de instruções precisa ser repetido. Com ele, a execução das instruções vai continuar até que uma condição seja verdadeira.")
+      setImagem('https://i0.wp.com/www.tutorialbrain.com/wp-content/uploads/2020/07/Python-while-continue.png?fit=474%2C390&ssl=1')
+    }
+    else if(input === 'IF'){
+      setMostar('none')
+      setMostrarDesc('')
+      setDescrição("É uma estrutura condicional equivalenet ao 'SE' em português, ela fala que determinado bloco de instruções só vai ser executado se a condição dentro do if for verdadeira")
+      setImagem('https://www.hashtagtreinamentos.com/wp-content/uploads/2021/07/Estruturas-Condicionais-no-Python-1.png.webp')
+    }
+    else if(input === 'ELSE'){
+      setMostar('none')
+      setMostrarDesc('')
+      setDescrição("É uma estrutura condicional equivalente ao 'SE NÃO' em português, ele vem depois de um if trazendo um bloco diferente a ser executado, caso as condições do if e do elif forem falsas.")
+      setImagem('https://www.simplilearn.com/ice9/free_resources_article_thumb/ifblock-odd.JPG')
+    }
+    else if(input === 'ELIF'){
+      setMostar('none')
+      setMostrarDesc('')
+      setDescrição("É utilizado quando queremos realizar a verificação de outra expressão caso a primeira validação seja falsa")
+      setImagem('https://i1.wp.com/blogdoscursos.com.br/wp-content/uploads/2015/05/ifpy.png?resize=289%2C181')
+    }
+    else if(input === 'FOR'){
+      setMostar('none')
+      setMostrarDesc('')
+      setDescrição("É utilizado para percorrer ou iterar sobre uma sequência de dados (seja esse uma lista, uma tupla, uma string), executando um conjunto de instruções em cada item. ")
+      setImagem('https://www.tutorialexample.com/wp-content/uploads/2020/09/understand-python-for-else-statement.png')
+    }
+    else if(input === 'BREAK'){
+      setMostar('none')
+      setMostrarDesc('')
+      setDescrição("Essa  instrução oferece a possibilidade de sair de um loop quando uma condição externa é acionada(è colocada dentro de um loop e geralmente após uma instrução condicional). ")
+      setImagem('https://pynative.com/wp-content/uploads/2021/06/break-loop-in-python.png')
+    }
+    else if(input === 'DEF'){
+      setMostar('none')
+      setMostrarDesc('')
+      setDescrição("Essa  instrução é utilizada para criar uma função em python. ")
+      setImagem('https://www.guru99.com/images/Pythonnew/Python10.1.png')
     }
 
   }
@@ -35,7 +83,7 @@ function App(){
     <TextInput
       style={styles.input}
       placeholder="Digite o comando"
-      onChangeText={ (texto) => setInput(texto) }
+      onChangeText={ (texto) => setInput(texto.toUpperCase()) }
     />
 
 
@@ -46,12 +94,12 @@ function App(){
     <Text style={styles.texto}> -Print</Text>
     <Text style={styles.texto}> -Input</Text>
     <Text style={styles.texto}> -While </Text>
-    <Text style={styles.texto}> -If/Elif/Else </Text>
+    <Text style={styles.texto}> -If</Text>
     <Text style={styles.texto}> -Elif</Text>
     <Text style={styles.texto}> -Else </Text>
     <Text style={styles.texto}> -For </Text>
-    <Text style={styles.texto}> -Atribuição de variável </Text>
-    <Text style={styles.texto}> -Listas</Text>
+    <Text style={styles.texto}> -Break</Text>
+    <Text style={styles.texto}> -Def</Text>
   
 
     </ScrollView>
@@ -59,7 +107,7 @@ function App(){
     <View style={{display:mostrarDesc}}>
     <Text style={styles.txtDescrição}> {descrição} </Text>
     <View style={{display:'flex', alignItems:"center"}}>
-    <Image style={styles.ImgDescrição} source = {{uri:imagem,}}/></View>
+    <Image style={styles.ImgDescrição} source = {{uri:imagem,}} resizeMode="contain"/></View>
   </View>
   <View style={{flex:1, height:80, backgroundColor: 'white'}}></View>
     <View style={{backgroundColor:'yellow',height:30}}></View>
