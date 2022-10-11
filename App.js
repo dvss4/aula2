@@ -8,6 +8,11 @@ function App(){
   const [mostrar, setMostar] = useState();
   const [imagem, setImagem] = useState();
 
+  function telainicial(){
+    setMostrarDesc('none')
+    setMostar('')
+  }
+
   function entrar(){
     
     if(input === ''){
@@ -88,6 +93,7 @@ function App(){
 
 
     <Button title="Pesquisar" onPress={ entrar } />
+    
     <View style={[styles.scroll,{display:mostrar}]}>
     <ScrollView>
     <Text style={styles.texto}> Comandos disponíveis: </Text>
@@ -103,14 +109,20 @@ function App(){
   
 
     </ScrollView>
+    
     </View>
-    <View style={{display:mostrarDesc}}>
+    <View style={{display:mostrarDesc, flex:7}}>
+    <ScrollView>
     <Text style={styles.txtDescrição}> {descrição} </Text>
-    <View style={{display:'flex', alignItems:"center"}}>
-    <Image style={styles.ImgDescrição} source = {{uri:imagem,}} resizeMode="contain"/></View>
+    <View style={{display:'flex',  alignItems:"center"}}>
+    <Image style={styles.ImgDescrição} source = {{uri:imagem,}} resizeMode="contain"/>
+    <View><Button title="Tela inicial" onPress={ telainicial } ></Button></View>
+
   </View>
-  <View style={{flex:1, height:80, backgroundColor: 'white'}}></View>
-    <View style={{backgroundColor:'yellow',height:30}}></View>
+  </ScrollView>
+  </View>
+  <View style={{flex:1, backgroundColor: 'yellow'}}></View>
+
    </SafeAreaView> 
   );
 }
